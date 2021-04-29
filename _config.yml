@@ -1,0 +1,38 @@
+# Jekyll master configuration
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Global variables, can be accessed using site.
+url: https://www.hendrik-erz.de
+title: "Hendrik Erz"
+locale: en-GB
+
+# Max. 10 posts per page
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Set a better permalink for the posts
+# NOTE: This setting requires that ALL static pages MUST have a permalink set
+# otherwise those pages would show up, e.g., as /post/publications!!
+permalink: /post/:title
+
+# Set Front matter default variables,
+# which can be overridden on a case-by-case basis.
+defaults:
+  - scope:
+      path: "" # No path scope
+    values:
+      # All pages use the default layout
+      layout: default
+      # This is the default meta description
+      description: "PhD Student at the IAS, Linköping University (Sweden)"
+  - scope:
+      path: "" # No path scope
+      type: "posts" # Limit to posts
+    values:
+      author: Hendrik
+      layout: post # Posts do not use the default layout
+      published: true # Explicitly publish posts DEBUG

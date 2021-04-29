@@ -1,0 +1,25 @@
+<footer>
+  <p>
+      &copy; {{ 'now' | date: "%Y" }} Hendrik Erz |
+      Inspired by <a href="https://edwardtufte.github.io/tufte-css/" target="_blank" rel="nofollow">Tufte CSS</a> |
+      Built on <a href="https://www.octobercms.com/" target="_blank" rel="nofollow">October CMS</a>
+  </p>
+  <!-- Display a toggle so that users can choose which mode they want -->
+  <div>
+    <span><i data-feather="sun"></i></span>
+
+    <div class="three-way-radio horizontal">
+      <!-- Add the three radios -->
+      <label for="ui-mode-left"></label>
+      <input type="radio" name="ui-mode" class="left" id="ui-mode-left" value="left">
+      <label for="ui-mode-center"></label>
+      <input type="radio" name="ui-mode" class="center" id="ui-mode-center" value="center">
+      <label for="ui-mode-right"></label>
+      <input type="radio" name="ui-mode" class="right" id="ui-mode-right" value="right">
+      
+      <!-- This is the actual indicator -->
+      <div class="indicator"></div>
+    </div>
+    <span><i data-feather="moon"></i></span>
+  </div>
+</footer>

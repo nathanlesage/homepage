@@ -1,0 +1,15 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+
+<script>
+  // Configure MathJax. We need to enable dollar-signs for inline-
+  // equations, since we're not using Dollars as a currency all too
+  // often.
+  // Reference: https://docs.mathjax.org/en/latest/input/tex/delimiters.html#tex-delimiters
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    // More config options: https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options
+  }
+</script>

@@ -1,0 +1,48 @@
+<div class="pagination-container" style="text-align: center" aria-label="You are viewing page {{ paginator.page }} of {{ paginator.total_pages }}">
+{% if paginator.total_pages > 0 %}
+  <ul class="paginator">
+    <li>
+      <a
+        {% if paginator.previous_page %}
+        href="{{ paginator.previous_page_path }}"
+        {% else %}
+        href="#"
+        class="disabled"
+        {% endif %}
+        title="Newer posts"
+      >
+        <i data-feather="arrow-left" width="16" height="16"></i>
+      </a>
+    </li>
+
+    {% for page in (1..paginator.total_pages) %}
+    <li>
+      <a
+        {% if page == 1 %}
+        href="{{ '/blog' | relative_url }}"
+        {% else %}
+        href="{{ site.paginate_path | relative_url | replace: ':num', page }}"
+        {% endif %}
+
+        {% if page == paginator.page %}class="active"{% endif %}
+      >
+        {{ page }}
+      </a>
+    </li>
+    {% endfor %}
+    <li>
+        <a
+          {% if paginator.next_page %}
+          href="{{ paginator.next_page_path }}"
+          {% else %}
+          href="#"
+          class="disabled"
+          {% endif %}
+          title="Older posts"
+          >
+          <i data-feather="arrow-right" width="16" height="16"></i>
+        </a>
+    </li>
+</ul>
+{% endif %}
+</div>

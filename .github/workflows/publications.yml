@@ -1,0 +1,32 @@
+name: Refresh the list of publications
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publications.yml'
+  schedule:
+    # Run on 1st and 15th of each month
+    - cron: '1 2 1,15 * *'
+
+jobs:
+  refresh:
+    name: Refresh the list of publications
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+      - name: Config git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      # Retrieve the list of publications and overwrite the corresponding file
+      - name: Update Publications
+        run: |
+          curl https://api.zotero.org/users/${{ secrets.ZOTERO_USER }}/publications/items?format=bib&style=american-sociological-review&linkwrap=1&locale=en-GB > ./_includes/publications.html
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Update publications"
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop

@@ -1,0 +1,74 @@
+// Main dark styles
+a {
+  color: $dark-accent-color;
+  &:hover { color: darken($dark-accent-color, 10%); }
+}
+
+// Selection overrides
+::selection {
+  background-color: $dark-accent-color;
+  color: $dark-page-background;
+}
+
+hr {
+  border-color: $dark-font-color;
+
+  &:after {
+      color: $dark-accent-color;
+      background-color: $dark-page-background;
+  }
+}
+
+blockquote {
+  border-left: 4px solid $dark-accent-color;
+}
+
+select {
+  background-color: $dark-font-color;
+  color: $dark-page-background;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: inherit;
+  font-family: $sans-font;
+  border: none;
+}
+
+nav#main-navigation {
+  background-color: $dark-font-color;
+  
+  div#animation div.sound-bar { background-color: $dark-accent-color; }
+
+  ul li a {
+      color: $dark-page-background;
+
+      &.active {
+          color: $dark-accent-color;
+      }
+
+      &:hover {
+          background-color: $dark-page-background;
+          color: $dark-font-color;
+      }
+  }
+}
+
+// POSTS
+p.post-list-metadata {
+  background-color: $dark-font-color;
+  color: $dark-page-background;
+}
+
+footer {
+  border-color: $dark-font-color;
+  color: $dark-font-color;
+}
+
+// SPECIAL ELEMENTS
+.three-way-radio {
+  background-color: $dark-font-color;
+
+   /* General styling for the indicator */
+  div.indicator {
+      background-color: $dark-accent-color;
+  }
+}

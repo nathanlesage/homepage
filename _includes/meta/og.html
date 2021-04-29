@@ -1,0 +1,34 @@
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="{{ page.title }}">
+{% if page.excerpt %}
+<meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
+{% else %}
+<meta name="twitter:description" content="{{ page.description }}">
+{% endif %}
+
+<meta name="twitter:site" content="@sahiralsahid">
+<meta name="twitter:creator" content="@sahiralsaid">
+
+{% if page.image.feature %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ site.github.url }}/images/{{ page.image.feature }}">
+{% else %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="{{ '/assets/images/hendrikerzde_socialmedia.png' | absolute_url }}">
+{% endif %}
+<!-- Open Graph -->
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.title }}">
+{% if page.excerpt %}
+<meta property="og:description" content="{{ page.excerpt | strip_html }}">
+{% else %}
+<meta property="og:description" content="{{ page.description }}">
+{% endif %}
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+{% if page.image.feature %}
+<meta property="og:image" content="{{ site.github.url }}/images/{{ page.image.feature }}">
+{% else %}
+<meta property="og:image" content="{{ '/assets/images/hendrikerzde_socialmedia.png' | absolute_url }}">
+{% endif %}

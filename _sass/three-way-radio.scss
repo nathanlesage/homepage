@@ -1,0 +1,66 @@
+// CSS styles for a three-way radio button
+$three-way-size: 30px;
+$three-way-margin: 5px;
+
+.three-way-radio {
+    background-color: transparent; // Set in the theme
+    border-radius: $three-way-size;
+    display: inline-flex;
+    position: relative;
+    justify-content: space-evenly;
+
+    &.horizontal {
+        flex-direction: row;
+        width: $three-way-size * 3; /* Three times */
+        height: $three-way-size;
+        
+         input.left:checked ~ div.indicator {
+             left: $three-way-margin;
+         }
+         input.center:checked ~ div.indicator {
+             left: $three-way-margin + $three-way-size;
+         }
+         input.right:checked ~ div.indicator {
+             left: $three-way-margin + 2 * $three-way-size;
+         }
+    }
+    
+    &.vertical {
+        flex-direction: column;
+        width: 30px; /* Three times */
+        height: 90px;
+        
+        input.left:checked ~ div.indicator {
+             top: $three-way-margin;
+         }
+         input.center:checked ~ div.indicator {
+             top: $three-way-margin + $three-way-size;
+         }
+         input.right:checked ~ div.indicator {
+             top: $three-way-margin + 2 * $three-way-size;
+         }
+    }
+    
+    label {
+        flex-grow: 1;
+        cursor: pointer;
+    }
+    
+    /* Hide the actual radio buttons */
+     input[type="radio"] {
+         display: none;
+     }
+     
+     /* General styling for the indicator */
+    div.indicator {
+        display: block;
+        width: $three-way-size - 2 * $three-way-margin;
+        height: $three-way-size - 2 * $three-way-margin;
+        position: absolute;
+        top: $three-way-margin;
+        left: $three-way-margin;
+        border-radius: $three-way-size - 2 * $three-way-margin;
+        background-color: transparent; // Set in the theme
+        transition: 0.3s all ease;
+    }
+}

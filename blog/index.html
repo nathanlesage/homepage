@@ -1,0 +1,19 @@
+---
+title: Blog
+---
+<!-- Get that header image -->
+<img id="hero-image" src="https://www.hendrik-erz.de/storage/app/media/blog_hero.jpg" aria-hidden="true">
+
+{% for post in paginator.posts %}
+<h2 class="post-list-heading"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<p class="post-list-metadata">{{ post.date | date_to_string }} | by {{ post.author }}</p>
+
+<div class="post-abstract">
+  {{ post.excerpt }}
+</div>
+
+<hr>
+{% endfor %}
+
+<!-- Now display the pagination -->
+{% include paginator.html %}

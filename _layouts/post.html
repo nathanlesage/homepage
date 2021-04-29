@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<!-- Display a single post-->
+<article>
+  <div class="post-abstract">
+    <p>{{ page.excerpt }}</p>
+    
+    <p class="post-metadata">
+      Published on <strong>{{ page.date | date_to_string }}</strong>
+      by {{ page.author }} | <strong>{{ content | number_of_words: "auto" | divided_by: 200 }} min reading time</strong>
+    </p>
+  </div>
+  
+  <hr>
+
+  <section id="article-content">
+    {{ content }}
+  </section>
+  <p id="single-post-back-button"><a href="{{ '/blog' | relative_url }}">Return to the post list</a></p>
+</article>

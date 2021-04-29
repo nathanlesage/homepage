@@ -1,0 +1,77 @@
+// Light styles
+// Selection overrides
+::selection {
+  background-color: $light-accent-color;
+  color: $light-page-background;
+}
+
+a {
+  color: $light-accent-color;
+  &:hover {
+      color: lighten($light-accent-color, 10%);
+  }
+}
+
+hr {
+  border-top: 1px solid $light-font-color;
+  &:after {
+      color: $light-accent-color;
+      background-color: $light-page-background;
+  }
+}
+
+blockquote {
+  border-left: 4px solid $light-accent-color;
+}
+
+select {
+  background-color: $light-font-color;
+  color: $light-page-background;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: inherit;
+  font-family: $sans-font;
+  border: none;
+}
+
+nav#main-navigation {
+  background-color: $light-font-color;
+  
+  div#animation div.sound-bar {
+      background-color: $light-accent-color;
+  }
+
+  ul li a {
+      color: $light-page-background;
+      
+      &.active {
+          color: $light-accent-color;
+      }
+      
+      &:hover {
+          background-color: $light-page-background;
+          color: $light-font-color;
+      }
+  }
+}
+
+// POSTS
+p.post-list-metadata {
+  background-color: $light-font-color;
+  color: $light-page-background;
+}
+
+footer {
+  border-top: 1px solid $light-font-color;
+  color: $light-font-color;
+}
+
+// SPECIAL ELEMENTS
+.three-way-radio {
+  background-color: $light-font-color;
+
+   /* General styling for the indicator */
+  div.indicator {
+      background-color: $light-accent-color;
+  }
+}

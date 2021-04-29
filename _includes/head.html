@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-language" content="en-GB">
+<meta name="description" content="{{ page.description }}">
+
+{% include meta/og.html %}
+
+{% include meta/json-ld.html %}
+
+<!-- Import fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&&family=Lato:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+
+<!-- Feather icons for general support -->
+<script src="https://unpkg.com/feather-icons"></script>
+      
+<!-- Include highlight.js for the codeblocks. We are using the "dark" theme because it's not too dark, and will work in both light and dark mode. -->
+{% include meta/hljs.html %}
+
+<!-- MathJax rendering engine for any formulae that I might add to the blog posts -->
+{% include meta/mathjax.html %}
+
+<!-- Import our styles -->
+<link rel="stylesheet" href="{{ 'assets/css/app.css' | relative_url }}">
+
+<!-- Include our JavaScript assets -->
+<script src="{{ 'assets/js/app.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/img2figure.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/navbar-animation.js' | relative_url }}"></script>
+<script src="{{ 'assets/js/switch-mode.js' | relative_url }}"></script>
+
+{%- comment -%} Get the feed {%- endcomment -%}
+<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+<title>{{ page.title }} | Hendrik Erz</title>

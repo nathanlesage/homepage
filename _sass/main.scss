@@ -1,0 +1,419 @@
+$main-font: 'Cardo',
+'Merriweather',
+'Liberation Serif',
+'Times New Roman',
+serif;
+$sans-font: 'Lato',
+'Roboto',
+'Liberation Sans',
+'Helvetica Neue',
+'Arial',
+sans-serif;
+
+$light-font-color: #657b83;
+$light-page-background: #fffff8;
+$light-accent-color: #1cb27e;
+
+$dark-font-color: #bbbbbb;
+$dark-page-background: #212224;
+$dark-accent-color: #009aab;
+
+$base-font-size: 1.3rem;
+$small-font-size: 0.9rem;
+$big-font-size: 1.5rem;
+
+// Imports for certain elements
+@import "three-way-radio"; // Three way radio buttons
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $main-font;
+  font-size: $base-font-size;
+  line-height: 120%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  line-height: 130%;
+  // Make any full-color transition a little bit smoother
+  // between dark and light mode
+  transition: 0.5s background-color ease;
+
+  a {
+    hyphens: none;
+    text-decoration: none;
+    padding: 0px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $sans-font;
+  }
+
+  ul li {
+    // Better styling for lists
+    margin-bottom: 20px;
+    line-height: 120%;
+  }
+
+  article p {
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  // Generic image settings so that they don't overflow
+  img {
+    margin: 10px;
+    max-width: 100%;
+  }
+
+  // Figures can be used, and they will also be used in
+  // blog posts instead of images
+  figure {
+    figcaption {
+      font-size: $small-font-size;
+      line-height: 120%;
+      font-style: italic;
+      text-align: center;
+    }
+  }
+
+  hr {
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    margin: 1em auto; // We need a margin so that the § doesn't overlap any text
+    border: none;
+    border-top: 1px solid transparent; // Border colors are set in the modes
+    text-align: center;
+    width: 80%;
+
+    &:after {
+      content: "§";
+      display: inline-block;
+      position: relative;
+      top: -0.8em;
+      padding: 0 0.25em;
+    }
+  }
+
+  blockquote {
+    margin: 0;
+    margin-left: 20px;
+    padding: 0px 40px;
+    padding-left: 20px;
+  }
+
+  // Helper classes
+  .sans-font {
+    font-family: $sans-font;
+  }
+
+  .small {
+    font-size: $small-font-size;
+  }
+
+  div#general-container {
+    width: 60vw; // Overwritten by media-query-rules later on
+    margin: 0 auto;
+  }
+
+  h1#page-heading {
+    // Merge the page heading with the navbar
+    margin-bottom: -7px;
+    // Also, we need to re-set the line-height, as the 130% of the body
+    // relate to the body font-size; and the h1 is significantly larger,
+    // resulting the 130% to result in something like 70% relatively.
+    line-height: 100%;
+  }
+
+  img#hero-image {
+    display: block;
+    width: 100%;
+    margin: 0px; // Reset margins
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  div#img-moi-container {
+    width: 150px;
+    margin: 20px auto;
+  }
+
+  img#img-moi {
+    border-radius: 75px;
+    width: 150px;
+    height: 150px;
+  }
+
+  nav#main-navigation {
+    position: relative;
+    padding: 0px 40px;
+
+    div#animation {
+      position: absolute;
+      top: -15px;
+      right: 0px;
+      width: 100px;
+      height: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; // Make them grow instead of "fall down"
+
+      div.sound-bar {
+        width: 7px;
+        height: 0px;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: block;
+        margin: 0;
+        padding: 0;
+
+        a {
+          font-family: $sans-font;
+          border: none;
+          display: block;
+          line-height: 30px; // We need a fixed line height
+          text-decoration: none;
+          padding: 5px 10px;
+          transition: 0.2s background-color ease;
+        }
+      }
+    }
+  }
+
+  // POSTS
+
+  ul.paginator {
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: space-around;
+    font-family: $sans-font;
+    font-size: $small-font-size;
+
+    li {
+      flex: 1;
+
+      &:first-child a {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        // Only the first element has a left border
+        border-left: 1px solid #aaa;
+      }
+
+      &:last-child a {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+
+      a {
+        display: inline-block;
+        width: 35px;
+        height: 25px;
+        padding: 4px;
+        text-align: center;
+        border-top: 1px solid #aaa;
+        border-bottom: 1px solid #aaa;
+        border-right: 1px solid #aaa;
+        background-color: #ccc;
+        color: white;
+
+        &.disabled {
+          cursor: not-allowed;
+          color: #ccc;
+          background-color: #aaa;
+        }
+
+        &.active {
+          background-color: #666;
+        }
+      }
+    }
+  }
+
+  h2.post-list-heading {
+    padding: 10px 0px;
+    margin: 10px 0px;
+    margin-bottom: 0px; // Merge with metadata
+  }
+
+  p.post-list-metadata {
+    margin-top: 0px;
+    font-family: $sans-font;
+    font-size: $small-font-size;
+    padding-left: 15px;
+  }
+
+  p.post-metadata {
+    font-family: $sans-font;
+    font-size: $small-font-size;
+  }
+
+  div.post-abstract {
+    font-family: $sans-font;
+    font-size: $small-font-size;
+    line-height: 120%;
+    padding: 0px 40px;
+  }
+
+  // CSL entries
+  div.csl-entry {
+    // Increase the spacing of the CSL entries on the publications page a little bit
+    margin-bottom: 15px;
+  }
+
+  div.footnotes {
+    font-size: $small-font-size;
+    line-height: 120%;
+  }
+
+  footer {
+    font-size: $small-font-size;
+    font-family: $sans-font;
+    border-top: 1px solid transparent; // Colors are set in the themes
+    margin: 10px 40px;
+    text-align: center;
+  }
+}
+
+// Mobile styles
+@media(max-width: 768px) {
+  body {
+
+    // The container should put 10px padding around the text so that it's
+    // not completely stuck to the border of the phone screen.
+    div#general-container {
+      width: 100%;
+      padding: 10px;
+    }
+
+    // The nav, however, should flush to the very end of the screen, so
+    // simply substract the 10px padding again.
+    nav#main-navigation {
+      padding: 0px;
+      margin: 0 -10px;
+
+      // We only style the top-level ul. Any nested ul, which indicates
+      // a form of "group" should not be reset in order to maintain this
+      // navigation on its own line (without all child elements also
+      // breaking lines)
+      &>ul {
+        display: initial;
+
+        &>li {
+          display: block;
+
+          a {
+            display: block;
+          }
+        }
+      }
+    }
+
+    // A few elements are not as wide as the page itself, so we should
+    // reset those here.
+    div.post-abstract,
+    footer {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  body {
+    div#general-container {
+      width: 70vw
+    }
+  }
+}
+
+@media(min-width: 1400px) {
+  body {
+    div#general-container {
+      width: 50vw;
+    }
+  }
+}
+
+@media(min-width: 1900px) {
+  body {
+    div#general-container {
+      width: 35vw;
+    }
+  }
+}
+
+@media print {
+
+  // Let the user have a good time printing the blog posts
+  // (but think of the environment!)
+  nav {
+    display: none;
+  }
+
+  .single-post-back-button {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: $light-page-background;
+    color: $light-font-color;
+
+    // We use (multiple) in order to import the same file several times
+    @import "light";
+  }
+}
+
+// Both in default (fallback for browsers without color-scheme support) and
+// without any body class we use the light theme
+body,
+body.light {
+  background-color: $light-page-background;
+  color: $light-font-color;
+
+  @import "light";
+}
+
+// Light mode is the default, but any browser that supports dark mode should
+// be allowed to do so!
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark-page-background;
+    color: $dark-font-color;
+
+    @import "dark";
+  }
+}
+
+// We can also programmatically set the mode using a class
+body.dark {
+  background-color: $dark-page-background;
+  color: $dark-font-color;
+
+  @import "dark";
+}
