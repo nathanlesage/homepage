@@ -19,6 +19,9 @@ paginate_path: "/blog/page:num/"
 # otherwise those pages would show up, e.g., as /post/publications!!
 permalink: /post/:title:output_ext
 
+# Instruct Jekyll to include our .htaccess-file
+include: [".htaccess"]
+
 # Set Front matter default variables,
 # which can be overridden on a case-by-case basis.
 defaults:
