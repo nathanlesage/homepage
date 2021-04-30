@@ -39,7 +39,7 @@ A static site generator functions as follows: You have some source code for a we
 I don’t have too much time today to dive into what this all means, and why – viewed from a certain angle – this is even better than CMS systems, but it does have many benefits. Let me close today’s post with a few comments on what has changed, and where you might need to adapt something on your site:
 
 * Most information should still be exactly where it was previously. However, the blogposts now require an `.html` appended to the URL. I’m trying to fix that over the weekend, but for now that’s how I got it to work
-* I took the liberty of exchanging the main font. While I do like Crimson (the previous font), I always felt it was a little big “fat.” While migrating my page to Jekyll, I stumbled upon the page from [Yehuda Katz](https://yehudakatz.com), and I really like the font he uses, Cardo
+* I took the liberty of exchanging the main font. While I do like Crimson (the previous font), I always felt it was a little bit “fat.” While migrating my page to Jekyll, I stumbled upon the page from [Yehuda Katz](https://yehudakatz.com), and I really like the font he uses, Cardo
 * A few other CSS improvements here and there have also happened, since it’s much easier editing CSS files using VS Code than in some online editor.
 * The feed is now reachable at a different location. It’s now https://www.hendrik-erz.de/feed.xml, not https://www.hendrik-erz.de/blog/feed.rss (the latter link now redirects, but I found that RSS readers don’t recognise HTML redirect requests, so you might want to exchange that one).
 
