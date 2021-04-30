@@ -3,3 +3,6 @@ ErrorDocument 404 /404.html
 
 # Prevent any rogue directory listings from showing up
 Options -Indexes
+
+# Add a permanent redirect from our old feed
+Redirect 301 /blog/feed.rss /feed.xml
