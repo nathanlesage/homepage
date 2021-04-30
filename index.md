@@ -6,6 +6,8 @@ title: Home
   <img id="img-moi" src="/assets/img/hendrikerz_profile.jpg" alt="A picture of me">
 </div>
 
+**Attention! The RSS feed to my articles has changed. The new location is now https://www.hendrik-erz.de/feed.xml. If you subscribe to my blog, you might need to change that.**
+
 I am Hendrik and currently a PhD-student at the [Institute for Analytical Sociology (IAS) at Linköping University (LiU)](https://liu.se/en/organisation/liu/iei/ias) in Sweden. Welcome to my personal website, where I keep you updated on all matters personal and occupational.
 
 ### Expertise
