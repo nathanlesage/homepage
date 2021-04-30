@@ -3,7 +3,7 @@ title: Home
 ---
 
 <div id="img-moi-container">
-  <img id="img-moi" src="https://www.hendrik-erz.de/storage/app/media/hendrik.jpg" alt="A picture of me">
+  <img id="img-moi" src="/assets/img/hendrikerz_profile.jpg" alt="A picture of me">
 </div>
 
 I am Hendrik and currently a PhD-student at the [Institute for Analytical Sociology (IAS) at Linköping University (LiU)](https://liu.se/en/organisation/liu/iei/ias) in Sweden. Welcome to my personal website, where I keep you updated on all matters personal and occupational.
