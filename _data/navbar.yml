@@ -1,0 +1,25 @@
+# Main navigation items (static pages)
+main:
+  - text: Home
+    link: /
+  - text: Blog
+    link: /blog/
+  - text: Publications
+    link: /publications/
+# Social media links (using icons)
+social_media:
+  - icon: twitter
+    link: https://www.twitter.com/sahiralsaid
+    title: Follow me on Twitter
+  - icon: github
+    link: https://github.com/nathanlesage
+    title: Hendrik Erz on GitHub
+  - icon: linkedin
+    link: https://www.linkedin.com/in/hendrik-erz/
+    title: Hendrik Erz on LinkedIn
+  - icon: instagram
+    link: https://www.instagram.com/nathan_lesage/
+    title: Follow me on Instagram
+  - icon: rss
+    link: https://www.hendrik-erz.de/feed.xml
+    title: Subscribe to my blog

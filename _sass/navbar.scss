@@ -1,0 +1,55 @@
+// The navigation is a little more complex,
+// so we're pulling it into its extra file.
+nav#main-navigation {
+  position: relative;
+  padding: 0px 40px;
+
+  div#animation {
+    position: absolute;
+    top: -15px;
+    right: 0px;
+    width: 100px;
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; // Make them grow instead of "fall down"
+
+    div.sound-bar {
+      width: 7px;
+      height: 0px;
+    }
+  }
+
+  // The actual navigation
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      a {
+        font-family: $sans-font;
+        border: none;
+        display: block;
+        line-height: 30px; // We need a fixed line height
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: 0.2s background-color ease;
+      }
+    }
+  }
+}
+
+// On screens up to 768px, we're going to hide the navigation bar altogether and
+// instead displaying the overlay button.
+@media(max-width: 768px) {
+  //
+}

@@ -1,60 +1,41 @@
 <nav id="main-navigation">
   <!-- A fun little animation -->
   <div id="animation" role="presentation">
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
-      <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
   </div>
   <ul role="presentation">
-      <!-- Static pages -->
-      {% for item in site.data.staticpages %}
-      <li>
-        <!-- To check for child items, use item.items -->
-        <a
-          href="{{ item.link }}"
-          {% if page.url == item.link %}class="active"{% endif %}
-          >
-          {{ item.text }}
-        </a>
-      </li>
-      {% endfor %}
-      <!-- END: Static pages. Here follow only additional links (Twitter etc.) -->
-      <li>
-          <!-- We use a nested list for items that should not be broken up (aka a group) -->
-          <ul role="presentation">
-              <li>
-                  <a href="https://www.twitter.com/sahiralsaid/" target="_blank" rel="nofollow" title="Follow me on Twitter">
-                      <i data-feather="twitter"></i>
-                  </a>
-              </li>
-              <li>
-                  <a href="https://github.com/nathanlesage/" target="_blank" rel="nofollow" title="Hendrik Erz on GitHub">
-                      <i data-feather="github"></i>
-                  </a>
-              </li>
-              <li>
-                  <a href="https://www.linkedin.com/in/hendrik-erz/" target="_blank" rel="nofollow" title="Hendrik Erz on LinkedIn">
-                      <i data-feather="linkedin"></i>
-                  </a>
-              </li>
-              <li>
-                  <a href="https://www.instagram.com/nathan_lesage/" target="_blank" rel="nofollow" title="Follow me on Instagram">
-                      <i data-feather="instagram"></i>
-                  </a>
-              </li>
-              <li>
-                  <a href="{{ site.url }}/feed.xml" target="_blank" title="Subscribe to my blog">
-                      <i data-feather="rss"></i>
-                  </a>
-              </li>   
-          </ul>
-      </li>
+    <!-- Static pages -->
+    {% for item in site.data.navbar.main %}
+    <li>
+      <!-- To check for child items, use item.items -->
+      <a
+        href="{{ item.link }}"
+        {% if page.url == item.link %}class="active"{% endif %}
+      >
+        {{ item.text }}
+      </a>
+    </li>
+    {% endfor %}
+    <li>
+      <!-- We use a nested list for items that should not be broken up (aka a group) -->
+      <ul role="presentation">
+        {% for item in site.data.navbar.social_media %}
+        <li>
+          <a href="{{ item.link }}" target="_blank" rel="nofollow" title="{{ item.title }}">
+            <i data-feather="{{ item.icon }}"></i>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
   </ul>
 </nav>
