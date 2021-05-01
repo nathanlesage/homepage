@@ -33,8 +33,9 @@ select {
   border: none;
 }
 
-nav#main-navigation {
+nav#main-navigation, nav#mobile-navigation div#mobile-container {
   background-color: $dark-font-color;
+  color: $dark-page-background;
   
   div#animation div.sound-bar { background-color: $dark-accent-color; }
 
@@ -50,6 +51,11 @@ nav#main-navigation {
           color: $dark-font-color;
       }
   }
+}
+
+// Make the menu toggle more visible over text
+nav#mobile-navigation label#menu-open {
+  background-color: $dark-page-background;
 }
 
 // POSTS

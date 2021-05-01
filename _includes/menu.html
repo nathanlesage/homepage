@@ -1,0 +1,28 @@
+{%- comment -%}
+  This component just renders the menu itself. We have moved it to its own
+  include file, since we need to include it twice -- once for the normal menu,
+  and once for the mobile navigation.
+{%- endcomment -%}
+<ul role="presentation">
+  <!-- Static pages -->
+  {% for item in site.data.navbar.main %}
+  <li>
+    <!-- To check for child items, use item.items -->
+    <a href="{{ item.link }}" {% if page.url == item.link %}class="active"{% endif %}>
+      {{ item.text }}
+    </a>
+  </li>
+  {% endfor %}
+  <li>
+    <!-- We use a nested list for items that should not be broken up (aka a group) -->
+    <ul role="presentation">
+      {% for item in site.data.navbar.social_media %}
+      <li>
+        <a href="{{ item.link }}" target="_blank" rel="nofollow" title="{{ item.title }}">
+          <i data-feather="{{ item.icon }}"></i>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>

@@ -48,8 +48,89 @@ nav#main-navigation {
   }
 }
 
+nav#mobile-navigation {
+  input#mobile-menu-toggle { display: none; }
+
+  // The mobile menu toggles #menu-open and #menu-close are in the top-right
+  label#menu-open {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+
+  // The mobile container is a full-size container on top of the page
+  #mobile-container {
+    z-index: 4;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+
+    label#menu-close {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  // Show the menu when the checkbox is checked
+  #mobile-menu-toggle:checked ~ #mobile-container {
+    display: block;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+
+    li {
+      display: block;
+      text-align: center;
+
+      // The links
+      a {
+        font-family: $sans-font;
+        border: none;
+        display: block;
+        line-height: 30px; // We need a fixed line height
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: 0.2s background-color ease;
+      }
+    }
+
+    // The nested list (a.k.a. the group)
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 20px;
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 // On screens up to 768px, we're going to hide the navigation bar altogether and
 // instead displaying the overlay button.
 @media(max-width: 768px) {
-  //
+  nav#main-navigation {
+    display: none;
+  }
+}
+
+@media(min-width: 769px) {
+  nav#mobile-navigation {
+    display: none;
+  }
 }

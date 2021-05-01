@@ -1,3 +1,4 @@
+<!-- This is the main navigation; it'll show up on all screens >= 768px -->
 <nav id="main-navigation">
   <!-- A fun little animation -->
   <div id="animation" role="presentation">
@@ -12,30 +13,27 @@
     <div class="sound-bar"></div>
     <div class="sound-bar"></div>
   </div>
-  <ul role="presentation">
-    <!-- Static pages -->
-    {% for item in site.data.navbar.main %}
-    <li>
-      <!-- To check for child items, use item.items -->
-      <a
-        href="{{ item.link }}"
-        {% if page.url == item.link %}class="active"{% endif %}
-      >
-        {{ item.text }}
-      </a>
-    </li>
-    {% endfor %}
-    <li>
-      <!-- We use a nested list for items that should not be broken up (aka a group) -->
-      <ul role="presentation">
-        {% for item in site.data.navbar.social_media %}
-        <li>
-          <a href="{{ item.link }}" target="_blank" rel="nofollow" title="{{ item.title }}">
-            <i data-feather="{{ item.icon }}"></i>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </li>
-  </ul>
+
+  {%- comment -%} Include the actual menu component {%- endcomment -%}
+  {% include menu.html %}
+</nav>
+
+<!-- This is the mobile navigation, it'll show precisely there. -->
+<nav id="mobile-navigation">
+  <label id="menu-open" for="mobile-menu-toggle" aria-label="Open menu">
+    <i data-feather="menu"></i>
+  </label>
+
+  <!-- The actual toggle; based on this we're showing and hiding the menu -->
+  <input type="checkbox" id="mobile-menu-toggle">
+
+  <div id="mobile-container">
+    <label id="menu-close" for="mobile-menu-toggle" aria-label="Close menu">
+      <i data-feather="x"></i>
+    </label>
+
+    <h2>Menu</h2>
+    {%- comment -%} Include the actual menu component {%- endcomment -%}
+    {% include menu.html %}
+  </div>
 </nav>
