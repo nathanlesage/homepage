@@ -22,7 +22,7 @@ jobs:
       # Retrieve the list of publications and overwrite the corresponding file
       - name: Update Publications
         run: |
-          curl "https://api.zotero.org/users/${{ secrets.ZOTERO_USER }}/publications/items?format=bib\&style=american-sociological-review\&linkwrap=1\&locale=en-GB" > ./_includes/publications.html
+          curl "https://api.zotero.org/users/${{ secrets.ZOTERO_USER }}/publications/items?format=bib&style=american-sociological-review&linkwrap=1&locale=en-GB" > ./_includes/publications.html
           git add -A
           git diff-index --quiet HEAD || git commit -m "Update publications"
       - name: Push changes
