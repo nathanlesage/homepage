@@ -7,7 +7,7 @@ layout: default
     <p>{{ page.excerpt }}</p>
     
     <p class="post-metadata">
-      Published on <strong>{{ page.date | date_to_string }}</strong>
+      Published on <strong>{{ page.date | date: '%B %d, %Y' }}</strong>
       by {{ page.author }} | <strong>{{ content | number_of_words: "auto" | divided_by: 200 }} min reading time</strong>
     </p>
   </div>
