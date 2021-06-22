@@ -4,8 +4,7 @@ name: Deploy to Production
 # Note: I've made some changes to this workflow file simply because I need to test out some stuff.
 
 on:
-  workflow_dispatch:
-    # No further properties
+  workflow_dispatch: {}
     
 env:
   WORKFLOW_DISPATCH: ${{ github.event_name == 'workflow_dispatch' }}
