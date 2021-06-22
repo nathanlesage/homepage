@@ -18,6 +18,8 @@ jobs:
     - name: Should run if the env variable is good
       if: ${{ env.WORKFLOW_DISPATCH }}
       run: 'echo "Was workflow dispatch!"'
+    - name: Echoes the env var
+      run: echo ${{ env.WORKFLOW_DISPATCH }}
     - uses: actions/checkout@v1
     - uses: ruby/setup-ruby@v1
       with:
