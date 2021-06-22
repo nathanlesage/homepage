@@ -1,16 +1,23 @@
 # Builds and deploys the page after updates
 name: Deploy to Production
 
+# Note: I've made some changes to this workflow file simply because I need to test out some stuff.
+
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    # No further properties
+    
+env:
+  WORKFLOW_DISPATCH: ${{ github.event_name == 'workflow_dispatch' }}
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
     steps:
+    - name: Should run if the env variable is good
+      if: ${{ env.WORKFLOW_DISPATCH }}
+      run: 'echo "Was workflow dispatch!"'
     - uses: actions/checkout@v1
     - uses: ruby/setup-ruby@v1
       with:
@@ -20,12 +27,3 @@ jobs:
     - name: Build the page
       run: bundle exec jekyll build
     # Deploy to the server
-    - name: Deploy to production
-      uses: easingthemes/ssh-deploy@v2.0.7
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        ARGS: "-vzhr"
-        SOURCE: "_site/"
-        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        REMOTE_USER: ${{ secrets.REMOTE_USER }}
-        TARGET: ${{ secrets.TARGET }}
